@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Cloner le dépôt contenant le Docker Compose et le code
-                git 'https://github.com/juano2404/jenkins_test.git'
+                git branch: 'main', url: 'https://github.com/juano2404/jenkins_test.git'
             }
         }
 
