@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/ton-user/ton-projet.git'  // Remplace par ton dépôt
+            }
+        }
+        stage('Build Backend') {
+            steps {
+                script {
+                    // Construire l'image Docker pour le backend
+                    docker.build('my_django_backend', './backend')
+                }
+            }
+        }
+        stage('Build Frontend') {
+            steps {
+                script {
+                    // Construire l'image Docker pour le frontend
+                    docker.build('my_nginx_frontend', './frontend')
+                }
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                script {
+                    // Exécute des tests, par exemple avec pytest
+                    docker.image('my_django_backend').inside {
+                        sh 'pytest'  // Change cette commande selon ton cadre de test
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    // Démarrer les services Docker
+                    sh 'docker-compose up -d'
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Déploiement réussi !'
+        }
+        failure {
+            echo 'Déploiement échoué !'
+        }
+    }
+}
