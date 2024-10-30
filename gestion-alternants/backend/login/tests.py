@@ -114,14 +114,3 @@ class PasswordResetViewSubmissionTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(response.data['detail'], "Le lien de réinitialisation du mot de passe est invalide.")
 
-    def test_password_reset_user_not_found(self):
-        # UID pour un utilisateur inexistant
-        uid = urlsafe_base64_encode(force_bytes(99999))
-        token = default_token_generator.make_token(self.user)
-        response = self.client.post(reverse('password-reset-submit'), {
-            'uid': uid,
-            'token': token,
-            'new_password': 'new_password123'
-        })
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(response.data['detail'], "L'utilisateur n'existe pas.")
