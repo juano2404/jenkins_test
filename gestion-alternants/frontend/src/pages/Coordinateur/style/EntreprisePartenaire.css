@@ -1,0 +1,23 @@
+h1{
+    font-size: 20px;
+    color: #A184DA;
+}
+
+/* src/components/style/EntreprisePartenaire.css */
+.flex-container {
+    display: flex; /* Utiliser Flexbox pour le conteneur */
+    justify-content: center; /* Centrer horizontalement les éléments */
+    align-items: flex-start; /* Aligner les éléments en haut */
+    margin-top: 60px; /* Optionnel : ajouter un peu d'espace au-dessus */
+}
+
+.entreprises-list,
+.entreprise-form {
+    flex: 1; /* Chaque composant occupe la même largeur */
+    margin: 0 30px; /* Ajouter de la marge horizontale de 10px */
+    max-width: 500px; /* Limiter la largeur maximale pour éviter l'étirement */
+}
+
+.entreprise-form {
+    margin-right: 0; /* Pas de marge à droite pour le dernier composant */
+}

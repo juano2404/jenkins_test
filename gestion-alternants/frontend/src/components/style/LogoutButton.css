@@ -1,0 +1,12 @@
+/* LogoutButton.css */
+button {
+    background-color: transparent;  /* Pas de couleur de fond */
+    color: white;                   /* Texte blanc */
+    border: none;                   /* Pas de bordure */
+    cursor: pointer;                /* Curseur en forme de main */
+    border-radius: 5px;             /* Bords arrondis */
+    transition: all 0.3s ease;  
+    font-size: 14px;
+    padding: 0;
+  }
+  

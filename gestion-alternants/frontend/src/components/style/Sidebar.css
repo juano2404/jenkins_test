@@ -1,0 +1,85 @@
+.sidebar {
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+  width: 250px; /* Largeur de la barre latérale */
+  position: fixed; /* Fixée à gauche de l'écran */
+  top: 0;
+  left: 0;
+  background-color: #7B49DC; /* Couleur de fond sombre */
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none; /* Pas de puces */
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  text-align: left;
+}
+
+.center:hover {
+  background-color: #8c66d9;
+  border-radius: 0px 25px 25px 0px;
+}
+
+.center {
+  color: white; /* Couleur du texte */
+  font-size: 15px;
+  display: flex; /* Utiliser flexbox pour aligner le texte et les icônes */
+  align-items: center; /* Aligner verticalement l'icône et le texte */
+}
+
+.header {
+  text-align: center !important;
+  text-decoration: none; /* Pas de soulignement */
+
+}
+
+.header a {
+  text-decoration: none; /* Désactive le soulignement pour le lien entier */
+  color: white;
+}
+
+.header h2 {
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.header p {
+  font-size: 10px;
+  margin-top: -7px;
+}
+
+.icon {
+  width: 60px;
+}
+
+.list {
+  display: flex; /* Utiliser flexbox pour aligner horizontalement l'icône et le texte */
+  align-items: center; /* Centre verticalement l'icône et le texte */
+  color: inherit; /* Garder la couleur du texte héritée */
+  padding: 10px; /* Ajouter du padding pour espacer un peu l'élément */
+}
+
+.list img {
+  margin-right: 10px; /* Espacement entre l'icône et le texte */
+  width: 20px; /* Largeur de l'icône */
+  height: 20px; /* Hauteur de l'icône */
+}
+
+.list a {
+  text-decoration: none; /* Supprimer le soulignement des liens */
+  color: white; /* Couleur du texte */
+  display: flex; /* Flexbox pour aligner correctement le contenu */
+  align-items: center; /* Centre verticalement l'icône et le texte */
+  font-size: 15px;
+}
+
+.icon-list {
+  margin-right: 10px; /* Espacement entre l'icône et le texte */
+  width: 20px; /* Largeur de l'icône */
+  height: 20px; /* Hauteur de l'icône */
+  flex-shrink: 0; /* Empêche l'icône de rétrécir */
+}

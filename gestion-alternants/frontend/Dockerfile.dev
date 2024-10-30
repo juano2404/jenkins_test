@@ -1,0 +1,16 @@
+FROM node:16
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+RUN npm install react-router-dom
+
+RUN npm install axios --save
+
+RUN npm install axios react-hook-form
+
+COPY . .
+
+CMD ["npm", "start"]

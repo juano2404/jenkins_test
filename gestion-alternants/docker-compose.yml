@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    environment:
+      DATABASE_URL: postgres://apprenti:eseo@db:5432/gestion_alternants_db
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+      - "587:587"    # Port pour le serveur SMTP
+    volumes:
+      - ./backend:/app  # Lien entre le répertoire local et le conteneur
+
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      POSTGRES_DB: gestion_alternants_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev # a enlever en prod
+    container_name: frontend
+    ports:
+      - "3000:3000"  # Mappe le port 80 du conteneur au port 80 de l'hôte en production
+    depends_on:
+    - backend
+    volumes:
+      - ./frontend:/app  # Monte le répertoire local dans le conteneur
+      - /app/node_modules  # Évite d'écraser node_modules dans le conteneur
+
+
+volumes:
+  pgdata:

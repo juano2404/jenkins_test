@@ -1,0 +1,116 @@
+/* Login.css */
+.login-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end; /* Pour positionner le formulaire à droite */
+  align-items: center;
+  background-image: url('../../LoginBackground.jpg'); /* Chemin relatif vers votre image */
+  background-size: cover; /* Couvre tout l'écran */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: left;
+  margin-right: 100px; /* Espace entre le formulaire et le bord droit */
+}
+
+.login-container h2 {
+  margin-top: 10px; /* Réduit l'espace entre le logo et le titre */
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px; /* Taille réduite du titre */
+  font-weight: bold;
+}
+
+/* Style pour le logo */
+.logo {
+  width: 90px; /* Taille augmentée du logo */
+  height: auto; /* Conserve les proportions */
+  margin-bottom: 5px; /* Réduit l'espace entre le logo et le titre de connexion */
+}
+
+/* Style des champs de saisie pour qu'ils ressemblent à des traits */
+.login-container input {
+  width: 100%; /* Assurez-vous que la largeur est la même pour les deux champs */
+  padding: 10px 0; /* Ajuster le padding pour centrer verticalement */
+  margin: 10px 0; /* Ajuste les marges */
+  border: none; /* Supprime les bordures */
+  border-bottom: 2px solid #ddd; /* Ajoute un trait en bas */
+  font-size: 12px; /* Taille de police réduite pour le texte */
+  background: transparent; /* Fond transparent */
+  color: #000000; /* Couleur noir pour le texte */
+}
+
+.login-container input:focus {
+  outline: none; /* Supprime le contour au focus */
+  border-bottom: 2px solid #7042DA; /* Change la couleur du trait au focus */
+  color: #000000; /* Couleur noire au focus */
+}
+
+.password-container {
+  position: relative; /* Pour positionner l'icône de l'œil */
+  margin-bottom: 20px; /* Ajoute de l'espace en bas si nécessaire */
+}
+
+.password-container input {
+  padding: 10px 0;
+}
+
+.eye-icon {
+  position: absolute; /* Positionner l'icône de manière absolue */
+  right: 10px; /* Ajustez la distance depuis la droite */
+  top: 50%; /* Centrer verticalement */
+  transform: translateY(-50%); /* Ajuste la position pour un meilleur centrage */
+  width: 20px; /* Largeur de l'icône */
+  height: auto; /* Conserve les proportions */
+  cursor: pointer; /* Change le curseur au survol */
+}
+
+.login-container button {
+  width: 45%; /* Largeur du bouton de connexion */
+  padding: 12px;
+  background-color: #7042DA; /* Couleur violette similaire à l'exemple */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px; /* Taille de police réduite pour le bouton */
+  margin-top: 25px; /* Espace entre le texte de mot de passe oublié et le bouton */
+}
+
+.login-container button:hover {
+  background-color: #623abf; /* Légèrement plus foncé au survol */
+}
+
+.login-container p {
+  margin-top: 5px; /* Réduire l'espace entre le champ de mot de passe et le texte */
+  color: #000000; /* Couleur du texte en noir */
+  font-size: 12px; /* Taille de police réduite pour le texte */
+  text-align: left; /* Aligner le texte à gauche */
+  margin-bottom: 0; /* Supprimer tout espace supplémentaire */
+}
+
+.password-link-container {
+  display: flex; /* Utilise Flexbox pour aligner le mot de passe et le lien */
+  justify-content: flex-start; /* Aligne à gauche */
+  align-items: center; /* Centre verticalement */
+  margin-top: 5px; /* Espace entre le champ de mot de passe et le texte */
+}
+
+.link-cliquez-ici {
+  color: #7042DA; /* Couleur violette pour 'Cliquez ici' */
+  text-decoration: none;
+  font-size: 12px; /* Taille de police réduite pour le lien */
+  margin-left: 2px; /* Espace très réduit entre le texte et le lien */
+}
+
+.link-cliquez-ici:hover {
+  text-decoration: underline; /* Souligne le lien au survol */
+}

@@ -1,0 +1,46 @@
+/* src/components/Coordinateur/style/EntrepriseForm.css */
+form {
+    display: flex; /* Utiliser flexbox pour le formulaire */
+    flex-direction: column; /* Organiser les champs en colonne */
+    gap: 20px; /* Espacement entre les champs */
+    margin-top: 30px;
+}
+
+input {
+    border: none; /* Supprimer la bordure */
+    border-bottom: 1px solid #A184DA; /* Ajouter une ligne en bas */
+    background: none; /* Supprimer le fond */
+    padding: 5px 0; /* Espacement vertical */
+    font-size: 16px; /* Taille de la police */
+    outline: none; /* Supprimer l'effet de surbrillance au focus */
+    width: 100%;
+}
+
+input:focus {
+    border-bottom: 1px solid #7A7A7A; /* Changer la couleur de la ligne en bas au focus */
+}
+
+input::placeholder {
+    font-size: 12px; /* Ajuste la taille de la police selon tes besoins */
+    opacity: 0.7; /* Ajuste l'opacité du placeholder si tu le souhaites */
+    color: #A184DA;
+}
+
+.button-form-entreprise {
+    padding: 10px; /* Espacement interne du bouton */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Arrondir les coins du bouton */
+    background-color: #A184DA; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    cursor: pointer; /* Changer le curseur au survol */
+    width: 30%;
+    margin-left: auto; /* Aligner le bouton à droite */
+
+}
+
+.button-form-entreprise:hover{
+ 
+    background-color: #8c66d9;
+    
+}
+

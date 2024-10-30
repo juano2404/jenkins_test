@@ -1,53 +1,63 @@
 pipeline {
     agent any
 
+    environment {
+        COMPOSE_FILE = "${env.WORKSPACE}/docker-compose.yml"
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/ton-user/ton-projet.git'  // Remplace par ton dépôt
+                // Cloner le dépôt contenant le Docker Compose et le code
+                git 'https://github.com/ton-user/ton-projet.git'
             }
         }
-        stage('Build Backend') {
+
+        stage('Build Services') {
             steps {
                 script {
-                    // Construire l'image Docker pour le backend
-                    docker.build('my_django_backend', './backend')
+                    // Construire les images Docker définies dans docker-compose.yml
+                    sh 'docker-compose build'
                 }
             }
         }
-        stage('Build Frontend') {
-            steps {
-                script {
-                    // Construire l'image Docker pour le frontend
-                    docker.build('my_nginx_frontend', './frontend')
-                }
-            }
-        }
+
         stage('Run Tests') {
             steps {
                 script {
-                    // Exécute des tests, par exemple avec pytest
-                    docker.image('my_django_backend').inside {
-                        sh 'pytest'  // Change cette commande selon ton cadre de test
-                    }
+                    // Démarrer les conteneurs en mode détaché (en arrière-plan)
+                    sh 'docker-compose up -d'
+
+                    // Exécuter les tests sur le backend Django
+                    // Remarque : Ajuste cette commande en fonction de ton framework de tests
+                    sh 'docker-compose exec backend python manage.py test'
+
+                    // Arrêter les conteneurs après les tests
+                    sh 'docker-compose down'
                 }
             }
         }
+
         stage('Deploy') {
             steps {
                 script {
-                    // Démarrer les services Docker
+                    // Démarrer les services en mode détaché pour le déploiement
                     sh 'docker-compose up -d'
                 }
             }
         }
     }
+
     post {
+        always {
+            // Nettoyer les conteneurs, réseaux et volumes créés par Docker Compose
+            sh 'docker-compose down'
+        }
         success {
             echo 'Déploiement réussi !'
         }
         failure {
-            echo 'Déploiement échoué !'
+            echo 'Échec du pipeline. Vérifie les erreurs dans les logs.'
         }
     }
 }

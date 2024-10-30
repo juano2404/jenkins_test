@@ -1,0 +1,11 @@
+/* Dashboard.css */
+.dashboard-container {
+    display: flex; /* Utilisez flex pour aligner la sidebar et le contenu */
+  }
+  
+  .content {
+    margin-left: 250px; /* Largeur de la barre latérale */
+    padding: 20px; /* Espacement autour du contenu */
+    flex: 1; /* Permet au contenu de prendre tout l'espace restant */
+  }
+  
