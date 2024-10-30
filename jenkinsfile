@@ -8,8 +8,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                sh 'echo $PATH'
                 // Cloner le dépôt contenant le Docker Compose et le code
-                git branch: 'origin/main', url: 'https://github.com/juano2404/jenkins_test.git'
+                git branch: 'main', url: 'https://github.com/juano2404/jenkins_test.git'
             }
         }
 
